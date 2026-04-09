@@ -48,6 +48,35 @@ h1{
   color:#d4af37;
 }
 
+.countdown{
+  margin-top:20px;
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.time-box{
+  background:rgba(0,0,0,0.28);
+  border:1px solid rgba(255,255,255,0.12);
+  padding:12px 14px;
+  border-radius:16px;
+  min-width:78px;
+}
+
+.time-box strong{
+  display:block;
+  color:#d4af37;
+  font-size:1.35rem;
+}
+
+.time-box span{
+  display:block;
+  margin-top:4px;
+  font-size:0.8rem;
+  text-transform:uppercase;
+}
+
 .btn{
   display:inline-block;
   margin-top:25px;
@@ -67,6 +96,8 @@ h1{
 
 .gallery img{
   width:250px;
+  height:320px;
+  object-fit:cover;
   border-radius:15px;
 }
 
@@ -97,6 +128,8 @@ h1{
       17 de octubre de 2026 · Chía, Cundinamarca
     </p>
 
+    <div id="countdown" class="countdown"></div>
+
     <a class="btn" href="https://wa.me/573001112233">
       Confirmar asistencia
     </a>
@@ -120,6 +153,34 @@ h1{
     <img src="assets/foto3.jpeg">
   </div>
 </div>
+
+<script>
+const weddingDate = new Date("2026-10-17T16:00:00").getTime();
+
+function updateCountdown() {
+  const now = new Date().getTime();
+  const diff = weddingDate - now;
+
+  if (diff <= 0) {
+    document.getElementById("countdown").innerHTML =
+      '<div class="time-box"><strong>Hoy</strong><span>Es el gran día</span></div>';
+    return;
+  }
+
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+  const minutes = Math.floor((diff / (1000 * 60)) % 60);
+
+  document.getElementById("countdown").innerHTML = `
+    <div class="time-box"><strong>${days}</strong><span>Días</span></div>
+    <div class="time-box"><strong>${hours}</strong><span>Horas</span></div>
+    <div class="time-box"><strong>${minutes}</strong><span>Min</span></div>
+  `;
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
+</script>
 
 </body>
 </html>

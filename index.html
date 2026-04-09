@@ -8,81 +8,81 @@
 <style>
 body{
   margin:0;
-  font-family: Georgia, serif;
-  background: linear-gradient(#0b1320,#10233b,#0d1d18);
+  font-family: 'Georgia', serif;
+  background: linear-gradient(180deg, #0b1320, #112a3a, #0d1d18);
   color:white;
   text-align:center;
 }
 
-.section{
-  padding:80px 20px;
-}
-
-.hero{
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-
-.card{
-  max-width:900px;
+/* CONTENEDOR PRINCIPAL */
+.container{
+  max-width:800px;
   margin:auto;
+  padding:100px 20px;
 }
 
+/* FRASE */
+.frase{
+  font-size:22px;
+  font-style:italic;
+  opacity:0.85;
+  margin-bottom:25px;
+}
+
+/* NOMBRES */
 h1{
-  font-size:42px;
-  line-height:1.1;
+  font-size:48px;
+  line-height:1.2;
+  margin:0;
 }
 
 .amp{
   color:#d4af37;
+  font-size:60px;
 }
 
+/* TEXTO */
 .subtitle{
-  margin-top:15px;
+  margin-top:20px;
   font-size:18px;
+  opacity:0.8;
 }
 
+/* FECHA */
 .date{
-  margin-top:10px;
+  margin-top:15px;
   color:#d4af37;
   font-size:18px;
 }
 
-/* COUNTDOWN */
+/* CONTADOR */
 #countdown{
-  margin-top:25px;
+  margin-top:30px;
   display:flex;
   justify-content:center;
-  gap:12px;
-  flex-wrap:wrap;
+  gap:15px;
 }
 
 .time-box{
-  background:#0b1320;
-  border:1px solid rgba(255,255,255,0.2);
-  padding:14px 16px;
-  border-radius:16px;
-  min-width:80px;
+  background:rgba(255,255,255,0.08);
+  padding:12px 18px;
+  border-radius:12px;
 }
 
 .time-box strong{
-  display:block;
-  color:#d4af37;
-  font-size:1.4rem;
+  font-size:20px;
 }
 
 .time-box span{
   display:block;
-  margin-top:5px;
-  font-size:0.75rem;
+  font-size:12px;
+  opacity:0.6;
 }
 
 /* BOTÓN */
 .btn{
   display:inline-block;
-  margin-top:25px;
+  margin-top:30px;
   padding:14px 28px;
   background:#d4af37;
   color:black;
@@ -91,15 +91,17 @@ h1{
   font-weight:bold;
 }
 
+/* SECCIONES */
+.section{
+  padding:80px 20px;
+}
+
 /* DETALLES */
 .box{
-  margin-top:20px;
-  padding:20px;
+  margin-top:30px;
+  padding:25px;
   border:1px solid rgba(255,255,255,0.2);
   border-radius:15px;
-  max-width:400px;
-  margin-left:auto;
-  margin-right:auto;
 }
 
 /* GALERÍA */
@@ -112,41 +114,48 @@ h1{
 
 .gallery img{
   width:260px;
-  height:340px;
-  object-fit:cover;
-  border-radius:20px;
-  box-shadow:0 10px 30px rgba(0,0,0,0.3);
+  border-radius:15px;
 }
 </style>
 </head>
 
 <body>
 
-<div class="section hero">
-  <div class="card">
-    <h1>
-      Camilo Eduardo Almario Moreno
-      <span class="amp">&</span>
-      Luisa Fernanda Moreno Parra
-    </h1>
+<div class="container">
 
-    <p class="subtitle">
-      Con mucha alegría queremos compartir este momento tan especial con ustedes
-    </p>
+  <p class="frase">
+    Entre todas las historias hermosas del mundo,<br>
+    la nuestra es nuestra favorita.
+  </p>
 
-    <p class="date">
-      17 de octubre de 2026 · Chía, Cundinamarca
-    </p>
+  <h1>
+    Camilo Eduardo Almario Moreno<br>
+    <span class="amp">&</span><br>
+    Luisa Fernanda Moreno Parra
+  </h1>
 
-    <!-- COUNTDOWN -->
-    <div id="countdown"></div>
+  <p class="subtitle">
+    Con mucha alegría, queremos invitarte a celebrar el día en que uniremos nuestras vidas.
+  </p>
 
-    <a class="btn" href="https://wa.me/573001112233">
-      Confirmar asistencia
-    </a>
+  <p class="date">
+    17 de octubre de 2026 · Chía, Cundinamarca
+  </p>
+
+  <!-- CONTADOR -->
+  <div id="countdown">
+    <div class="time-box"><strong id="days"></strong><span>días</span></div>
+    <div class="time-box"><strong id="hours"></strong><span>horas</span></div>
+    <div class="time-box"><strong id="minutes"></strong><span>min</span></div>
   </div>
+
+  <a class="btn" href="https://wa.me/573001112233">
+    Confirmar asistencia
+  </a>
+
 </div>
 
+<!-- DETALLES -->
 <div class="section">
   <h2>Detalles</h2>
   <div class="box">
@@ -156,40 +165,32 @@ h1{
   </div>
 </div>
 
+<!-- GALERÍA -->
 <div class="section">
   <h2>Momentos</h2>
   <div class="gallery">
     <img src="assets/foto1.jpg">
-    <img src="assets/foto2.png">
-    <img src="assets/foto3.jpeg">
+    <img src="assets/foto2.jpg">
+    <img src="assets/foto3.jpg">
   </div>
 </div>
 
 <script>
-const weddingDate = new Date("October 17, 2026 16:00:00").getTime();
+const targetDate = new Date("October 17, 2026 16:00:00").getTime();
 
-function updateCountdown() {
+function updateCountdown(){
   const now = new Date().getTime();
-  const diff = weddingDate - now;
+  const distance = targetDate - now;
 
-  if(diff <= 0){
-    document.getElementById("countdown").innerHTML =
-      "<div class='time-box'><strong>Hoy</strong><span>Es el gran día</span></div>";
-    return;
-  }
+  const days = Math.floor(distance / (1000*60*60*24));
+  const hours = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
+  const minutes = Math.floor((distance % (1000*60*60)) / (1000*60));
 
-  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-  const minutes = Math.floor((diff / (1000 * 60)) % 60);
-
-  document.getElementById("countdown").innerHTML = `
-    <div class="time-box"><strong>${days}</strong><span>Días</span></div>
-    <div class="time-box"><strong>${hours}</strong><span>Horas</span></div>
-    <div class="time-box"><strong>${minutes}</strong><span>Min</span></div>
-  `;
+  document.getElementById("days").innerText = days;
+  document.getElementById("hours").innerText = hours;
+  document.getElementById("minutes").innerText = minutes;
 }
 
-updateCountdown();
 setInterval(updateCountdown, 1000);
 </script>
 

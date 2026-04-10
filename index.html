@@ -4,10 +4,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Camilo & Luisa</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Great+Vibes&display=swap" rel="stylesheet">
 
-  <style>
-    .top-info{
+<style>
+body{
+  margin:0;
+  font-family:'Playfair Display', serif;
+  background:#f3efe9;
+  color:#2c2c2c;
+  text-align:center;
+}
+
+/* TOP INFO */
+.top-info{
   position:absolute;
   top:55px;
   left:50%;
@@ -20,6 +30,24 @@
   font-weight:500;
 }
 
+/* HERO */
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+}
+
+.card{
+  background:white;
+  padding:80px 40px;
+  border-radius:30px;
+  box-shadow:0 10px 40px rgba(0,0,0,0.05);
+  max-width:700px;
+}
+
+/* MINI TITLE */
 .mini-title{
   letter-spacing:3px;
   font-size:12px;
@@ -28,45 +56,22 @@
   text-transform:uppercase;
 }
 
-.hero{
-  position:relative;
-}
-body{
-  margin:0;
-  font-family: Georgia, serif;
-  background: #f3efe9;
-  color:#2c2c2c;
-  text-align:center;
-}
+/* MONTAÑA */
+.mountain{
+  width:260px;
+  display:block;
+  margin:20px auto 10px;
 }
 
-.section{
-  padding:80px 20px;
-}
-
-.hero{
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-
-.card{
- .card{
-  max-width:1000px;
-  margin:auto;
-  padding-top:120px;
-}
-
+/* NOMBRES */
 h1{
-  font-family: 'Great Vibes', cursive;
+  font-family:'Great Vibes', cursive;
   font-size:80px;
   font-weight:400;
   line-height:1.1;
   margin:0;
 }
 
-/* ajustes de espacio */
 .name-top{
   margin-bottom:10px;
 }
@@ -75,6 +80,7 @@ h1{
   margin-top:10px;
 }
 
+/* AMPERSAND */
 .amp{
   color:#d4af37;
   font-size:90px;
@@ -82,78 +88,53 @@ h1{
   margin:5px 0;
 }
 
+/* TEXTO */
 .subtitle{
-  mmax-width: 600px;
-margin: 20px auto;
-line-height: 1.6;
+  margin-top:30px;
+  font-size:18px;
+  line-height:1.6;
+  max-width:600px;
+  margin-left:auto;
+  margin-right:auto;
 }
 
-.date{
-  font-size:16px;
-letter-spacing:0.5px;
-}
-
+/* BOTÓN */
 .btn{
   display:inline-block;
-  margin-top:25px;
-  padding:14px 25px;
+  margin-top:30px;
+  padding:14px 28px;
   background:#d4af37;
   color:black;
-  border-radius:25px;
+  border-radius:30px;
   text-decoration:none;
-  box-shadow: 0 8px 20px rgba(201,169,110,0.3);
-}
-
-.gallery{
-  display:flex;
-  justify-content:center;
-  gap:15px;
-  flex-wrap:wrap;
-}
-
-.gallery img{
-  width:250px;
-  border-radius:15px;
-}
-
-.box{
-  margin-top:20px;
-  padding:20px;
-  border:1px solid rgba(255,255,255,0.2);
-  border-radius:15px;
-}
-
-.westy{
-  width:120px;
-  opacity:0.8;
-  margin-top:40px;
+  font-weight:500;
 }
 </style>
 </head>
 
 <body>
 
-<div class="section hero">
+<!-- FECHA Y LUGAR -->
+<div class="top-info">
+  <span>17 de octubre de 2026</span>
+  <span>Chía, Cundinamarca</span>
+</div>
 
-  <!-- arriba -->
-  <div class="top-info">
-    <span class="left">17 de octubre de 2026</span>
-    <span class="right">Chía, Cundinamarca</span>
-  </div>
-
+<!-- PORTADA -->
+<div class="hero">
   <div class="card">
 
     <p class="mini-title">Nuestra boda</p>
 
-    <h1>
-      Camilo <br>
-     <span class="amp">&</span>
-      Luisa
-    </h1>
+    <!-- MONTAÑA -->
+    <img src="assets/montana.png" class="mountain">
+
+    <h1 class="name-top">Camilo Eduardo</h1>
+    <span class="amp">&</span>
+    <h1 class="name-bottom">Luisa Fernanda</h1>
 
     <p class="subtitle">
-      Entre todas las historias hermosas del mundo, la nuestra es nuestra favorita.
-      <br><br>
+      Entre todas las historias hermosas del mundo, la nuestra es nuestra favorita.<br><br>
       Con mucha alegría, queremos invitarte a celebrar el día en que uniremos nuestras vidas.
     </p>
 
@@ -162,55 +143,6 @@ letter-spacing:0.5px;
     </a>
 
   </div>
-</div>
-</div>
-
-<div class="section">
-  <h2>Momentos</h2>
-  <div class="gallery">
-    <img src="assets/foto1.jpg">
-    <img src="assets/foto2.jpg">
-    <img src="assets/foto3.jpg">
-  </div>
-</div>
-
-<div class="section">
-  <h2>Detalles</h2>
-  <div class="box">
-    📍 Hacienda Marroquín<br><br>
-    ⏰ 4:00 pm<br><br>
-    👗 Formal elegante
-  </div>
-</div>
-
-<div class="section">
-  <h2>El gran día</h2>
-  <div class="box">
-    4:00 pm - Ceremonia<br><br>
-    5:30 pm - Cóctel<br><br>
-    7:00 pm - Cena<br><br>
-    9:00 pm - Fiesta
-  </div>
-</div>
-
-<div class="section">
-  <h2>Regalos</h2>
-  <p>
-    Tu presencia es nuestro mejor regalo 💛<br><br>
-    Pero si deseas tener un detalle, puedes apoyarnos en nuestros proyectos futuros o luna de miel.
-  </p>
-</div>
-
-<div class="section">
-  <h2>Contacto</h2>
-  <p>
-    ¿Dudas?<br><br>
-    Escríbenos por WhatsApp 💬
-  </p>
-</div>
-
-<div class="section">
-  <img src="assets/westy.png" class="westy">
 </div>
 
 </body>
